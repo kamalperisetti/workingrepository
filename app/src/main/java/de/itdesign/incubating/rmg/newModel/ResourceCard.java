@@ -1,25 +1,24 @@
 package de.itdesign.incubating.rmg.newModel;
+import de.itdesign.incubating.rmg.model.Skill;
+
 import java.util.UUID;
 
 public class ResourceCard {
 
     String id;
-    String skill;
-    String name;
-    int time;
     String homeBoardId;
+    int time;
+    Skill skill;
+    String name;
 
-    public ResourceCard(String skill,String name,int time,String homeBoardId){
+
+    public ResourceCard(String id, String homeBoardId, int time, Skill skill, String name){
         //GUID for id
-        this.id=generateGUID();
+        this.id=id;
         this.skill=skill;
         this.name=name;
         this.time=time;
         this.homeBoardId=homeBoardId;
-    }
-   //Method  to generate GUID(UUID)
-    private String generateGUID() {
-        return  UUID.randomUUID().toString(); //Generate GUID
     }
 
     public String getId() {
@@ -30,11 +29,11 @@ public class ResourceCard {
         this.id = id;
     }
 
-    public String getSkill() {
+    public Skill getSkill() {
         return skill;
     }
 
-    public void setSkill(String skill) {
+    public void setSkill(Skill skill) {
         this.skill = skill;
     }
 
