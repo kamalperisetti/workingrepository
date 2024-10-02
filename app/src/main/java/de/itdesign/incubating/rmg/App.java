@@ -12,5 +12,7 @@ public class App {
         SpringApplication.run(App.class, args);
 //        System.out.println("SLJKBHLKJQWJSLK");
         System.out.println(new App().getGreeting());
+        System.out.println("sw");
+
     }
 }
