@@ -1,7 +1,7 @@
 package de.itdesign.incubating.rmg.newModel;
 import de.itdesign.incubating.rmg.model.Skill;
 
-import java.util.UUID;
+
 
 public class ResourceCard {
 
@@ -13,7 +13,7 @@ public class ResourceCard {
 
 
     public ResourceCard(String id, String homeBoardId, int time, Skill skill, String name){
-        //GUID for id
+
         this.id=id;
         this.skill=skill;
         this.name=name;
