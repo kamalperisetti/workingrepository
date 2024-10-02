@@ -14,4 +14,32 @@ public class Project {
         this.initialFinishTime = initialFinishTime;
         this.demands = demands;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getInitialStartTime() {
+        return initialStartTime;
+    }
+
+    public int getInitialFinishTime() {
+        return initialFinishTime;
+    }
+
+    public Collection<Demand> getDemands() {
+        return demands;
+    }
+
+    public void setDemands(Collection<Demand> demands) {
+        this.demands = demands;
+    }
 }
