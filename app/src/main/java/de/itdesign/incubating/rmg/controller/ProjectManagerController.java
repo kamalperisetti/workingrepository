@@ -4,7 +4,6 @@ import de.itdesign.incubating.rmg.model.Player;
 import de.itdesign.incubating.rmg.model.ProjectPlan;
 import de.itdesign.incubating.rmg.model.Game;
 import de.itdesign.incubating.rmg.model.Role;
-import de.itdesign.incubating.rmg.newModel.Project;
 import de.itdesign.incubating.rmg.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -21,14 +20,7 @@ import java.util.List;
 @RestController
 //@Controller
 public class ProjectManagerController {
-//
-//    @MessageMapping("/sayHello")
-//    @SendTo("/topic/sayHello")
-//    public String sayHello(@Payload String a){
-//        System.out.println("Message called");
-//        System.out.println("Message from client" + a);
-//        return a;
-//    }
+
 
     Game newGame = new Game();
     Player resourceManger = new Player("2", Role.RM, "Bharath", List.of(1, 2));
@@ -41,8 +33,8 @@ public class ProjectManagerController {
     @Autowired
     GameService gameService;
 
-    @GetMapping("/get-project/{id}")
-    public List<ProjectPlan> getProjectByPlayerId(@PathVariable("id") int id) {
-        return gameService.getProjectByPlayerId(id);
-    }
+//    @GetMapping("/get-project/{id}")
+//    public List<ProjectPlan> getProjectByPlayerId(@PathVariable("id") int id) {
+//        return gameService.getProjectByPlayerId(id);
+//    }
 }

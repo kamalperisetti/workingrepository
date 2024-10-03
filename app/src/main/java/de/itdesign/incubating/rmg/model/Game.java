@@ -1,10 +1,6 @@
 package de.itdesign.incubating.rmg.model;
 
-import de.itdesign.incubating.rmg.model.*;
 
-import de.itdesign.incubating.rmg.newModel.Player;
-import de.itdesign.incubating.rmg.newModel.Project;
-import de.itdesign.incubating.rmg.newModel.ResourceCard;
 
 import java.util.Collection;
 import java.util.List;
@@ -92,7 +88,7 @@ public class Game {
                 new ResourceCard("RC66", "B2", 7, Skill.SPADE, "Daniela"));
 
         this.projects = List.of(
-                new de.itdesign.incubating.rmg.newModel.Project("P1", "Tender of Financial Institution X (external)", 3, 5,
+                new Project("P1", "Tender of Financial Institution X (external)", 3, 5,
                         Set.of(new Demand(0, Skill.HEART),
                                 new Demand(0, Skill.HEART),
                                 new Demand(1, Skill.HEART),
@@ -102,7 +98,7 @@ public class Game {
                                 new Demand(2, Skill.DIAMOND),
                                 new Demand(2, Skill.SPADE),
                                 new Demand(2, Skill.SPADE))),
-                new de.itdesign.incubating.rmg.newModel.Project("P2", "Website Launch (external)", 2, 4,
+                new Project("P2", "Website Launch (external)", 2, 4,
                         List.of(new Demand(0, Skill.HEART),
                                 new Demand(0, Skill.DIAMOND),
                                 new Demand(0, Skill.SPADE),
@@ -129,6 +125,7 @@ public class Game {
                                 new Demand(2, Skill.SPADE),
                                 new Demand(2, Skill.SPADE)))
 
+        );}
 
     public String getId() {
         return id;
@@ -169,3 +166,28 @@ public class Game {
     public void setProjectPlans(Collection<ProjectPlan> projectPlans) {
         this.projectPlans = projectPlans;
     }
+
+    public Collection<ResourceBoard> getResourceBoards() {
+        return resourceBoards;
+    }
+
+    public void setResourceBoards(Collection<ResourceBoard> resourceBoards) {
+        this.resourceBoards = resourceBoards;
+    }
+
+    public Collection<Request> getRequests() {
+        return requests;
+    }
+
+    public void setRequests(Collection<Request> requests) {
+        this.requests = requests;
+    }
+
+    public Round getCurrentRound() {
+        return currentRound;
+    }
+
+    public void setCurrentRound(Round currentRound) {
+        this.currentRound = currentRound;
+    }
+}
