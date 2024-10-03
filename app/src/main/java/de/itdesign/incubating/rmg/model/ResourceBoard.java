@@ -4,7 +4,7 @@ import java.util.Collection;
 
 public class  ResourceBoard {
     String id;
-     String title;
+    String title;
     Player owner;
     Collection<ResourceCard> resources;
 

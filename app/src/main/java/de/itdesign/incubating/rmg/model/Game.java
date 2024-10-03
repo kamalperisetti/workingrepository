@@ -16,38 +16,17 @@ public class Game {
     Collection<Request> requests;
     Round currentRound;
 
-    Player projectManager = new Player("1", Role.PM, "Gowtham", List.of(1, 2));
-    Player projectManager1 = new Player("3", Role.PM, "Hari", List.of(1, 2));
 
-    Player resourceManger = new Player("2", Role.RM, "Bharath", List.of(1, 2));
-    ResourceCard newResourceCard = new ResourceCard("1", "B1", 0, Skill.HEART, "Kamal");
-    Demand newDemand = new Demand(0, Skill.HEART);
-    Request newRequest = new Request("1", "P1", newDemand);
-    ResourceBoard newResourceBoard = new ResourceBoard("1", "Board1", resourceManger, List.of(newResourceCard));
-    Project newProject = new Project("P1", "Tender of Financial Institution X (external)", 3, 5,
-            List.of(new Demand(0, Skill.HEART),
-                    new Demand(0, Skill.HEART),
-                    new Demand(1, Skill.HEART),
-                    new Demand(1, Skill.DIAMOND),
-                    new Demand(1, Skill.SPADE),
-                    new Demand(2, Skill.HEART),
-                    new Demand(2, Skill.DIAMOND),
-                    new Demand(2, Skill.SPADE),
-                    new Demand(2, Skill.SPADE)));
-
-    Collection<ProjectPlan> newProjectPlan =List.of(
-            new ProjectPlan("1",projectManager, newProject, 2,List.of(newResourceCard)),
-            new ProjectPlan("2",projectManager, newProject, 2,List.of(newResourceCard)),
-            new ProjectPlan("3",projectManager1, newProject, 2,List.of(newResourceCard)));
-//    new ProjectPlan("2",projectManager, newProject, 2,List.of(newResourceCard)));
-
-    public Game() {
-        this.id = "1";
-        this.players = List.of(projectManager, projectManager1);
-        this.projectPlans = newProjectPlan;
-        this.resourceBoards = List.of(newResourceBoard);
-        this.requests = List.of(newRequest);
-        this.currentRound = Round.CALL;
+    public Game(String id, Collection<Player> players,  Collection<ProjectPlan> projectPlans,
+    Collection<ResourceBoard> resourceBoards,
+    Collection<Request> requests,
+    Round currentRound) {
+        this.id = id;
+        this.players = players;
+        this.projectPlans = projectPlans;
+        this.resourceBoards = resourceBoards;
+        this.requests = requests;
+        this.currentRound = currentRound;
         this.cards = List.of(
                 new ResourceCard("RC00", "B1", 2, Skill.HEART, "Anna"),
                 new ResourceCard("RC01", "B1", 2, Skill.HEART, "Alex"),
