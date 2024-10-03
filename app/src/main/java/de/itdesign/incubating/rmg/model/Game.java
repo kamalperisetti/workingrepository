@@ -1,32 +1,17 @@
 package de.itdesign.incubating.rmg.model;
 
-
-
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-//import java.util.Set;
+
 
 public class Game {
     String id;
-    Collection<Player> players;
     Collection<ResourceCard> cards;
-    Collection<Project> projects;
-    Collection<ProjectPlan> projectPlans;
-    Collection<ResourceBoard> resourceBoards;
-    Collection<Request> requests;
-    Round currentRound;
+    Collection<Request> requests = new ArrayList<>();
 
-
-    public Game(String id, Collection<Player> players,  Collection<ProjectPlan> projectPlans,
-    Collection<ResourceBoard> resourceBoards,
-    Collection<Request> requests,
-    Round currentRound) {
+    public Game(String id) {
         this.id = id;
-        this.players = players;
-        this.projectPlans = projectPlans;
-        this.resourceBoards = resourceBoards;
-        this.requests = requests;
-        this.currentRound = currentRound;
         this.cards = List.of(
                 new ResourceCard("RC00", "B1", 2, Skill.HEART, "Anna"),
                 new ResourceCard("RC01", "B1", 2, Skill.HEART, "Alex"),
@@ -96,45 +81,7 @@ public class Game {
                 new ResourceCard("RC65", "B2", 7, Skill.SPADE, "Dilara"),
                 new ResourceCard("RC66", "B2", 7, Skill.SPADE, "Daniela"));
 
-        this.projects = List.of(
-                new Project("P1", "Tender of Financial Institution X (external)", 3, 5,
-                        List.of(new Demand(0, Skill.HEART),
-                                new Demand(0, Skill.HEART),
-                                new Demand(1, Skill.HEART),
-                                new Demand(1, Skill.DIAMOND),
-                                new Demand(1, Skill.SPADE),
-                                new Demand(2, Skill.HEART),
-                                new Demand(2, Skill.DIAMOND),
-                                new Demand(2, Skill.SPADE),
-                                new Demand(2, Skill.SPADE))),
-                new Project("P2", "Website Launch (external)", 2, 4,
-                        List.of(new Demand(0, Skill.HEART),
-                                new Demand(0, Skill.DIAMOND),
-                                new Demand(0, Skill.SPADE),
-                                new Demand(1, Skill.HEART),
-                                new Demand(1, Skill.HEART),
-                                new Demand(1, Skill.DIAMOND),
-                                new Demand(1, Skill.DIAMOND),
-                                new Demand(1, Skill.SPADE),
-                                new Demand(2, Skill.HEART),
-                                new Demand(2, Skill.DIAMOND),
-                                new Demand(2, Skill.SPADE))),
-                new Project("P3", "Company Trip (internal)", 6, 8,
-                        List.of(new Demand(0, Skill.HEART),
-                                new Demand(0, Skill.DIAMOND),
-                                new Demand(0, Skill.DIAMOND),
-                                new Demand(1, Skill.HEART),
-                                new Demand(1, Skill.HEART),
-                                new Demand(1, Skill.DIAMOND),
-                                new Demand(1, Skill.DIAMOND),
-                                new Demand(1, Skill.SPADE),
-                                new Demand(2, Skill.HEART),
-                                new Demand(2, Skill.DIAMOND),
-                                new Demand(2, Skill.DIAMOND),
-                                new Demand(2, Skill.SPADE),
-                                new Demand(2, Skill.SPADE)))
-
-        );}
+    }
 
     public String getId() {
         return id;
@@ -142,14 +89,6 @@ public class Game {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public Collection<Player> getPlayers() {
-        return players;
-    }
-
-    public void setPlayers(Collection<Player> players) {
-        this.players = players;
     }
 
     public Collection<ResourceCard> getCards() {
@@ -160,30 +99,6 @@ public class Game {
         this.cards = cards;
     }
 
-    public Collection<Project> getProjects() {
-        return projects;
-    }
-
-    public void setProjects(Collection<Project> projects) {
-        this.projects = projects;
-    }
-
-    public Collection<ProjectPlan> getProjectPlans() {
-        return projectPlans;
-    }
-
-    public void setProjectPlans(Collection<ProjectPlan> projectPlans) {
-        this.projectPlans = projectPlans;
-    }
-
-    public Collection<ResourceBoard> getResourceBoards() {
-        return resourceBoards;
-    }
-
-    public void setResourceBoards(Collection<ResourceBoard> resourceBoards) {
-        this.resourceBoards = resourceBoards;
-    }
-
     public Collection<Request> getRequests() {
         return requests;
     }
@@ -192,11 +107,4 @@ public class Game {
         this.requests = requests;
     }
 
-    public Round getCurrentRound() {
-        return currentRound;
-    }
-
-    public void setCurrentRound(Round currentRound) {
-        this.currentRound = currentRound;
-    }
 }
