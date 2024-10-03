@@ -30,8 +30,8 @@ public class ProjectManagerController {
         System.out.println(resourceManger);
         return resourceManger;
     }
-    @Autowired
-    GameService gameService;
+//    @Autowired
+//    GameService gameService;
 
 //    @GetMapping("/get-project/{id}")
 //    public List<ProjectPlan> getProjectByPlayerId(@PathVariable("id") int id) {
