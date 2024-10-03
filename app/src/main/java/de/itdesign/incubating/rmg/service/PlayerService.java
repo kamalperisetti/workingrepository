@@ -14,10 +14,11 @@ public class PlayerService {
     public List<Player> players=new ArrayList<>();
 
     public PlayerService(){
-        players.add(new Player(UUID.randomUUID().toString(), Role.RM,"Gowtham",List.of(20,30,50)));
-        players.add(new Player(UUID.randomUUID().toString(),Role.PM,"Bharath",List.of(40,30,50)));
-        players.add(new Player(UUID.randomUUID().toString(), Role.PM,"Kamal",List.of(20,30,50)));
-        players.add(new Player(UUID.randomUUID().toString(),Role.RM,"Bhagyasri",List.of(40,30,50)));
+        players.add(new Player("player1", Role.RM,"Gowtham",List.of(100)));
+        players.add(new Player("player2",Role.PM,"Bharath",List.of(40)));
+        players.add(new Player("player3", Role.PM,"Kamal",List.of(20)));
+        players.add(new Player("player4",Role.RM,"Bhagyasri",List.of(40)));
+        players.add(new Player("player5",Role.PM,"Roy",List.of(30)));
     }
     public List<Player> getAllPlayers(){
         return  players;
