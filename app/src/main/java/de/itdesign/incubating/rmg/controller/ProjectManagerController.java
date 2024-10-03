@@ -17,12 +17,10 @@ import java.util.List;
 //@Controller
 public class ProjectManagerController {
 
-
-
-//    Player resourceManger = new Player("2", Role.RM, "Bharath", List.of(1, 2));
-
     @Autowired
     PorjectService projectService;
+
+
     @MessageMapping("game/{gameId}/owner?{ownerId}")
     @SendTo("/topic/projects")
 //    @GetMapping("/get-project/{id}")
