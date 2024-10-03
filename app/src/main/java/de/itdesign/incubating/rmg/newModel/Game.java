@@ -1,4 +1,8 @@
-package de.itdesign.incubating.rmg.model;
+package de.itdesign.incubating.rmg.newModel;
+
+import de.itdesign.incubating.rmg.model.*;
+import de.itdesign.incubating.rmg.newModel.Player;
+import de.itdesign.incubating.rmg.newModel.ResourceCard;
 
 import java.util.Collection;
 import java.util.List;
@@ -14,34 +18,9 @@ public class Game {
     Collection<Request> requests;
     Round currentRound;
 
-    Player projectManager = new Player("1", Role.PM, "Gowtham", List.of(1, 2));
-    Player projectManager1 = new Player("3", Role.PM, "Hari", List.of(1, 2));
-
-    Player resourceManger = new Player("2", Role.RM, "Bharath", List.of(1, 2));
-    ResourceCard newResourceCard = new ResourceCard("1", "B1", 0, Skill.HEART, "Kamal");
-    Demand newDemand = new Demand(0, Skill.HEART);
-    Request newRequest = new Request("1", "P1", newDemand);
-    ResourceBoard newResourceBoard = new ResourceBoard("1", "Board1", resourceManger, List.of(newResourceCard));
-    Project newProject = new Project("P1", "Tender of Financial Institution X (external)", 3, 5,
-            List.of(new Demand(0, Skill.HEART),
-                    new Demand(0, Skill.HEART),
-                    new Demand(1, Skill.HEART),
-                    new Demand(1, Skill.DIAMOND),
-                    new Demand(1, Skill.SPADE),
-                    new Demand(2, Skill.HEART),
-                    new Demand(2, Skill.DIAMOND),
-                    new Demand(2, Skill.SPADE),
-                    new Demand(2, Skill.SPADE)));
-
-    Collection<ProjectPlan> newProjectPlan =List.of(
-            new ProjectPlan("1",projectManager, newProject, 2,List.of(newResourceCard)),
-            new ProjectPlan("2",projectManager, newProject, 2,List.of(newResourceCard)),
-            new ProjectPlan("3",projectManager1, newProject, 2, List.of(newResourceCard)));
-//    new ProjectPlan("2",projectManager, newProject, 2,List.of(newResourceCard)));
-
     public Game() {
 
-        this.cards = Set.of(
+        this.cards = List.of(
                 new ResourceCard("RC00", "B1", 2, Skill.HEART, "Anna"),
                 new ResourceCard("RC01", "B1", 2, Skill.HEART, "Alex"),
                 new ResourceCard("RC02", "B2", 2, Skill.HEART, "Ben"),
@@ -110,7 +89,7 @@ public class Game {
                 new ResourceCard("RC65", "B2", 7, Skill.SPADE, "Dilara"),
                 new ResourceCard("RC66", "B2", 7, Skill.SPADE, "Daniela"));
 
-        this.projects = Set.of(
+        this.projects = List.of(
                 new Project("P1", "Tender of Financial Institution X (external)", 3, 5,
                         Set.of(new Demand(0, Skill.HEART),
                                 new Demand(0, Skill.HEART),
@@ -122,7 +101,7 @@ public class Game {
                                 new Demand(2, Skill.SPADE),
                                 new Demand(2, Skill.SPADE))),
                 new Project("P2", "Website Launch (external)", 2, 4,
-                        Set.of(new Demand(0, Skill.HEART),
+                        List.of(new Demand(0, Skill.HEART),
                                 new Demand(0, Skill.DIAMOND),
                                 new Demand(0, Skill.SPADE),
                                 new Demand(1, Skill.HEART),
@@ -134,7 +113,7 @@ public class Game {
                                 new Demand(2, Skill.DIAMOND),
                                 new Demand(2, Skill.SPADE))),
                 new Project("P3", "Company Trip (internal)", 6, 8,
-                        Set.of(new Demand(0, Skill.HEART),
+                        List.of(new Demand(0, Skill.HEART),
                                 new Demand(0, Skill.DIAMOND),
                                 new Demand(0, Skill.DIAMOND),
                                 new Demand(1, Skill.HEART),
@@ -147,47 +126,8 @@ public class Game {
                                 new Demand(2, Skill.DIAMOND),
                                 new Demand(2, Skill.SPADE),
                                 new Demand(2, Skill.SPADE)))
-                // TODO: Add all required projects
+
         );
     }
 
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public Collection<Player> getPlayers() {
-        return players;
-    }
-
-    public void setPlayers(Collection<Player> players) {
-        this.players = players;
-    }
-
-    public Collection<ResourceCard> getCards() {
-        return cards;
-    }
-
-    public void setCards(Collection<ResourceCard> cards) {
-        this.cards = cards;
-    }
-
-    public Collection<Project> getProjects() {
-        return projects;
-    }
-
-    public void setProjects(Collection<Project> projects) {
-        this.projects = projects;
-    }
-
-    public Collection<ProjectPlan> getProjectPlans() {
-        return projectPlans;
-    }
-
-    public void setProjectPlans(Collection<ProjectPlan> projectPlans) {
-        this.projectPlans = projectPlans;
-    }
+}
