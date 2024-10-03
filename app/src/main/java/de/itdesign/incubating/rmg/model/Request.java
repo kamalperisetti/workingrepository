@@ -5,8 +5,6 @@ public class Request {
     String targetProjectBoardId;
     Demand demand;
 
-//
-
     public Request(String id, String targetProjectBoardId, Demand demand) {
         this.id = id;
         this.targetProjectBoardId = targetProjectBoardId;

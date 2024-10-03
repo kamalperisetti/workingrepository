@@ -2,9 +2,9 @@ package de.itdesign.incubating.rmg.model;
 
 import java.util.Collection;
 
-public class ResourceBoard {
+public class  ResourceBoard {
     String id;
-    String title;
+     String title;
     Player owner;
     Collection<ResourceCard> resources;
 
