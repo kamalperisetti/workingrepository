@@ -1,56 +1,51 @@
 package de.itdesign.incubating.rmg.service;
 
-import de.itdesign.incubating.rmg.model.*;
+import de.itdesign.incubating.rmg.model.Game;
+
+import de.itdesign.incubating.rmg.model.ResourceCard;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
-import java.util.stream.Collectors;
+
 
 
 @Service
 public class GameService {
 
-    Player projectManager = new Player("1", Role.PM, "Gowtham", List.of(1, 2));
-    Player projectManager1 = new Player("3", Role.PM, "Hari", List.of(1, 2));
+    private final Game game;
 
-    Player resourceManger = new Player("2", Role.RM, "Bharath", List.of(1, 2));
-    ResourceCard newResourceCard = new ResourceCard("1", "B1", 0, Skill.HEART, "Kamal");
-    Demand newDemand = new Demand(0, Skill.HEART);
-    Request newRequest = new Request("1", "P1", newDemand);
-    ResourceBoard newResourceBoard = new ResourceBoard("1", "Board1", resourceManger, List.of(newResourceCard));
-    Project newProject = new Project("P1", "Tender of Financial Institution X (external)", 3, 5,
-            List.of(new Demand(0, Skill.HEART),
-                    new Demand(0, Skill.HEART),
-                    new Demand(1, Skill.HEART),
-                    new Demand(1, Skill.DIAMOND),
-                    new Demand(1, Skill.SPADE),
-                    new Demand(2, Skill.HEART),
-                    new Demand(2, Skill.DIAMOND),
-                    new Demand(2, Skill.SPADE),
-                    new Demand(2, Skill.SPADE)));
-
-    Collection<ProjectPlan> newProjectPlan =List.of(
-            new ProjectPlan("1",projectManager, newProject, 2,List.of(newResourceCard)),
-            new ProjectPlan("2",projectManager, newProject, 2,List.of(newResourceCard)),
-            new ProjectPlan("3",projectManager1, newProject, 2,List.of(newResourceCard)));
-
-
-    public Game getGame(){
-        return new Game("1", List.of(projectManager, projectManager1), newProjectPlan, List.of(newResourceBoard), List.of(newRequest), Round.CALL);
+    public GameService() {
+        this.game = new Game("Game1"); // Manual instantiation without @Autowired
     }
 
 
-//    PM Start
+    public Collection<ResourceCard> getResourcesOfB1(){
+        Collection<ResourceCard> resourceCards = game.getCards();
+        Collection<ResourceCard> board1Resources = new ArrayList<>();
+        for(ResourceCard each : resourceCards){
+            if(each.homeBoardId().equals("B1")){
+                board1Resources.add(each);
+            }
+            else{
+                continue;
+            }
+        }
+        return board1Resources;
+    }
 
-
-//    PM End
-
-
-
-//    RM Start
-
-
-//    RM End
+    public Collection<ResourceCard> getResourcesOfB2(){
+        Collection<ResourceCard> resourceCards = game.getCards();
+        Collection<ResourceCard> board2Resources = new ArrayList<>();
+        for(ResourceCard each : resourceCards){
+            if(each.homeBoardId().equals("B2")){
+                board2Resources.add(each);
+            }
+            else{
+                continue;
+            }
+        }
+        return board2Resources;
+    }
 
 }
