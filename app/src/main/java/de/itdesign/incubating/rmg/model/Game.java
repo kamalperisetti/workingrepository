@@ -42,7 +42,12 @@ public class Game {
 //    new ProjectPlan("2",projectManager, newProject, 2,List.of(newResourceCard)));
 
     public Game() {
-
+        this.id = "1";
+        this.players = List.of(projectManager, projectManager1);
+        this.projectPlans = newProjectPlan;
+        this.resourceBoards = List.of(newResourceBoard);
+        this.requests = List.of(newRequest);
+        this.currentRound = Round.CALL;
         this.cards = List.of(
                 new ResourceCard("RC00", "B1", 2, Skill.HEART, "Anna"),
                 new ResourceCard("RC01", "B1", 2, Skill.HEART, "Alex"),

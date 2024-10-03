@@ -1,9 +1,6 @@
 package de.itdesign.incubating.rmg.controller;
 
-import de.itdesign.incubating.rmg.model.Player;
-import de.itdesign.incubating.rmg.model.ProjectPlan;
-import de.itdesign.incubating.rmg.model.Game;
-import de.itdesign.incubating.rmg.model.Role;
+import de.itdesign.incubating.rmg.model.*;
 import de.itdesign.incubating.rmg.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -30,11 +27,11 @@ public class ProjectManagerController {
         System.out.println(resourceManger);
         return resourceManger;
     }
-//    @Autowired
-//    GameService gameService;
+    @Autowired
+    GameService gameService;
 
-//    @GetMapping("/get-project/{id}")
-//    public List<ProjectPlan> getProjectByPlayerId(@PathVariable("id") int id) {
-//        return gameService.getProjectByPlayerId(id);
-//    }
+    @GetMapping("/get-project/{id}")
+    public List<ProjectPlan> getProjectByPlayerId(@PathVariable("id") int id) {
+        return gameService.getProjectByPlayerId(id);
+    }
 }
