@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 //@Controller
@@ -23,9 +24,9 @@ public class ProjectManagerController {
 
     @Autowired
     PorjectService projectService;
-    @MessageMapping("game/{gameId}/owner?{ownerId}")
-    @SendTo("/topic/projects")
-//    @GetMapping("/get-project/{id}")
+   // @MessageMapping("game/{gameId}/owner?{ownerId}")
+   // @SendTo("/topic/projects")
+   @GetMapping("/get-project/{id}")
     public List<ProjectPlan> getProjectByPlayerId(@PathVariable("id") int id) {
         return projectService.getProjectByPlayerId(id);
     }
@@ -34,4 +35,13 @@ public class ProjectManagerController {
     public String sendResourceCardToRM(@RequestBody ResourceCard resourceCard){
         return projectService.sendResourceCardToRM(resourceCard);
     }
+
+    //move project
+    @PostMapping("/moveCard")
+    public  void moveProject(@RequestBody Map<String, Object> requestBody){
+       Integer startTime=(Integer) requestBody.get("startTime");
+       String projectId=(String) requestBody.get("projectId") ;
+       projectService.moveProject(startTime,projectId);
+    }
+
 }

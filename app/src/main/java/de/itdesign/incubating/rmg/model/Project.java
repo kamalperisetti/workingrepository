@@ -9,6 +9,7 @@ public class Project {
     Collection<Demand> demands;
 
     public Project(String id, String name, int initialStartTime, int initialFinishTime, Collection<Demand> demands) {
+        this.id=id;
         this.name = name;
         this.initialStartTime = initialStartTime;
         this.initialFinishTime = initialFinishTime;

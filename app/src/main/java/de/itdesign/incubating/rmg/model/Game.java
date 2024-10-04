@@ -21,7 +21,7 @@ public class Game {
     Collection<ResourceBoard> resourceBoards,
     Collection<Request> requests,
     Round currentRound) {
-        this.id = id;
+        this.id = "1";
         this.players = players;
         this.projectPlans = projectPlans;
         this.resourceBoards = resourceBoards;

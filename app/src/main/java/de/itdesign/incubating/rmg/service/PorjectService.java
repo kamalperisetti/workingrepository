@@ -3,6 +3,7 @@ package de.itdesign.incubating.rmg.service;
 import de.itdesign.incubating.rmg.model.Game;
 import de.itdesign.incubating.rmg.model.ProjectPlan;
 import de.itdesign.incubating.rmg.model.ResourceCard;
+import de.itdesign.incubating.rmg.repository.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +13,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Service
-public class PorjectService {
+public class PorjectService implements GameRepository {
     @Autowired
     GameService gameService;
 
@@ -38,9 +39,15 @@ public class PorjectService {
 
         AllResourceCards.add(card);
         game.setCards(AllResourceCards);
-        System.out.println(AllResourceCards + "Added");
-        System.out.println(game.getCards()+ "JOJOJOHKGMJ");
         return "ResourceCard Successfully Send To Resource Manager";
     }
+
+
+    // move project
+
+    public  void  moveProject(int startTime,String projectId){
+
+    }
+
 
 }
